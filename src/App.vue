@@ -1,19 +1,26 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <CardStack :cards="stack"></CardStack>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import CardStack from "./components/CardStack";
 export default {
-  name: 'App',
+  data: function() {
+    return {
+      stack: [
+        { name: "Sergio" },
+        { name: "Andrea" },
+        { name: "Alberto" },
+        { name: "Dani" }
+      ]
+    };
+  },
   components: {
-    HelloWorld
+    CardStack
   }
-}
+};
 </script>
 
 <style>
