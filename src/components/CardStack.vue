@@ -1,14 +1,16 @@
 <template>
-  <div>
-    <div class="outer">
-      <UserCard
-        v-for="(card, index) in stack"
-        :key="index"
-        :card="card"
-        :index="index"
-        :is-current="index === 0"
-        @discardCard="discard()"
-      ></UserCard>
+  <div class="outer">
+    <UserCard
+      class="inner"
+      v-for="(card, index) in stack"
+      :key="index"
+      :card="card"
+      :is-current="index === 0"
+      @discardCard="discard"
+      @like="like"
+    ></UserCard>
+    <div v-if="stack.length === 0">
+      <h4>Oops, looks like nobody is crossing</h4>
     </div>
   </div>
 </template>
@@ -27,7 +29,12 @@ export default {
 
   methods: {
     discard() {
-      this.stack.shift();
+      this.stack.pop();
+    },
+
+    like(event) {
+      console.log("You liked " + event);
+      this.discard();
     }
   },
 
@@ -42,11 +49,16 @@ export default {
 
 <style scoped>
 .outer {
+  width: 100%;
   position: relative;
+  text-align: center;
+  height: fit-content;
 }
+
 .inner {
   position: absolute;
-  top: 50%;
-  left: 50%;
+  top: 20%;
+  left: 20%;
+  padding: 3px;
 }
 </style>

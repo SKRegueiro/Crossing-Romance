@@ -1,11 +1,22 @@
 <template>
-  <div>
-    <vue-swing v-if="isCurrent" @throwout="$emit('discardCard')" :config="config">
-      <div class="userCard">
-        <h3>{{card.name}}</h3>
+  <vue-swing
+    @throwoutleft="$emit('discardCard')"
+    @throwoutright="$emit('like', card.name)"
+    :config="config"
+  >
+    <div
+      class="card shadow p-3 mb-5 bg-white rounded"
+      :style="{ backgroundImage: `url(${card.link})` }"
+    >
+      <div class="card-top"></div>
+      <div class="card-body">
+        <h5 class="card-title">{{card.name}}</h5>
+        <p
+          class="card-text"
+        >Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia repellat praesentium nesciunt</p>
       </div>
-    </vue-swing>
-  </div>
+    </div>
+  </vue-swing>
 </template>
 
 <script>
@@ -35,20 +46,37 @@ export default {
     isCurrent: {
       type: Boolean,
       required: true
-    },
-    index: Number
+    }
   }
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.userCard {
-  border: 1px solid black;
-  margin: 0 auto;
-  background-color: aqua;
+.card {
   width: 300px;
   height: 420px;
-  border-radius: 5%;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 1px;
+  overflow: hidden;
+}
+.card-top {
+  height: 80%;
+  width: 80%;
+}
+.card-body {
+  text-align: left;
+}
+
+h5 {
+  font-weight: bold;
+  color: #ffffff;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.12);
+  font-size: 1.8rem;
+}
+p {
+  color: #ffffff;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.12);
 }
 </style>
