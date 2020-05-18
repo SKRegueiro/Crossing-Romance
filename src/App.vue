@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <CardStack :cards="stack"></CardStack>
+    <CardStack :stack="stack"></CardStack>
   </div>
 </template>
 

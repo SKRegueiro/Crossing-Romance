@@ -1,36 +1,33 @@
 <template>
   <div>
-    <div
-      class="card"
-      :class="{isCurrent: isCurrent}"
-      :style="{ transform: transformString }"
-      ref="interactElement"
-    >
-      <h3>{{name}}</h3>
-    </div>
+    <vue-swing v-if="isCurrent" @throwout="$emit('discardCard')" :config="config">
+      <div class="userCard">
+        <h3>{{card.name}}</h3>
+      </div>
+    </vue-swing>
   </div>
 </template>
 
 <script>
-import interact from "interact.js";
+import VueSwing from "vue-swing";
 export default {
   name: "UserCard",
-  data() {
+
+  data: function() {
     return {
-      interactPosition: {
-        x: 0,
-        y: 0
+      config: {
+        minThrowOutDistance: 100,
+        maxRotation: 50,
+        allowedDirections: [VueSwing.Direction.LEFT, VueSwing.Direction.RIGHT]
       }
     };
   },
-  computed: {
-    transformString() {
-      const { x, y } = this.interactPosition;
-      return `translate3D(${x}px, ${y}px, 0`;
-    }
-  },
+
+  components: { "vue-swing": VueSwing },
+
+  methods: {},
+
   props: {
-    name,
     card: {
       type: Object,
       required: true
@@ -38,39 +35,15 @@ export default {
     isCurrent: {
       type: Boolean,
       required: true
-    }
-  },
-  methods: {
-    interactSetPosition(coordinates) {
-      const { x = 0, y = 0 } = coordinates;
-      this.interactPosition = { x, y };
     },
-    reserCardPosition() {
-      this.interactSetPosition({ x: 0, y: 0 });
-    }
-  },
-  mounted() {
-    const element = this.$refs.interactElement;
-    interact(element).draggable({
-      onmove: event => {
-        const x = this.interactPosition.x + event.dx;
-        const y = this.interactPosition.y + event.dy;
-        this.interactPosition({ x, y });
-      },
-      onend: () => {
-        this.reserCardPosition();
-      }
-    });
-  },
-  beforeDestroy() {
-    interact(this.$refs.interactElement).unset();
+    index: Number
   }
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.card {
+.userCard {
   border: 1px solid black;
   margin: 0 auto;
   background-color: aqua;
