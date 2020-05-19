@@ -4,6 +4,7 @@
     @throwoutright="$emit('like', card.name)"
     :config="config"
   >
+    <router-link></router-link>
     <div
       class="card shadow p-3 mb-5 bg-white rounded"
       :style="{ backgroundImage: `url(${card.link})` }"
@@ -51,13 +52,13 @@ export default {
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .card {
   width: 300px;
   height: 420px;
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: 50% 74.0741%;
+  background-size: auto 111.266%;
   padding: 1px;
   overflow: hidden;
 }
@@ -70,13 +71,14 @@ export default {
 }
 
 h5 {
-  font-weight: bold;
+  font-weight: bolder;
   color: #ffffff;
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.12);
   font-size: 1.8rem;
 }
 p {
   color: #ffffff;
+  font-weight: bold;
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.12);
 }
 </style>

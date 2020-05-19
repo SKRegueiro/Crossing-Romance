@@ -50,9 +50,10 @@ export default {
 <style scoped>
 .outer {
   width: 100%;
+  height: 100%;
+  max-height: 1000px;
   position: relative;
   text-align: center;
-  height: fit-content;
 }
 
 .inner {
