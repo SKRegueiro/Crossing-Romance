@@ -6,7 +6,7 @@
       :key="index"
       :card="card"
       :is-current="index === 0"
-      @discardCard="discard"
+      @dislike="discard"
       @like="like"
     ></UserCard>
     <div v-if="stack.length === 0">
@@ -20,7 +20,7 @@ import UserCard from "./UserCard";
 
 export default {
   data: function() {
-    return {};
+    return { stack: [], likedUser: [] };
   },
 
   components: {
@@ -28,21 +28,46 @@ export default {
   },
 
   methods: {
-    discard() {
+    discard(id) {
+      this.storeLiked("disliked", id);
       this.stack.pop();
+      this.getUsers(1);
     },
 
-    like(event) {
-      console.log("You liked " + event);
+    like(id) {
+      this.storeLiked("liked", id);
       this.discard();
+      this.getUsers(1);
+    },
+
+    getUsers(number) {
+      this.$http
+        .post("users", { limit: number })
+        .then(result => {
+          result.body.forEach(user => {
+            this.stack.push(user);
+          });
+        })
+        .catch(err => console.log(err));
+    },
+
+    storeLiked(result, number) {
+      let idObject = {
+        currentId: 1,
+        likedId: number,
+        action: result
+      };
+      this.$http
+        .post("users/like", idObject)
+        .then(result => {
+          console.log(result);
+        })
+        .catch(err => console.log(err));
     }
   },
 
-  props: {
-    stack: {
-      type: Array,
-      required: true
-    }
+  beforeMount() {
+    this.getUsers(3);
   }
 };
 </script>

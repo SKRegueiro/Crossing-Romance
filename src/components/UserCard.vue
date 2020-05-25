@@ -1,17 +1,16 @@
 <template>
   <vue-swing
-    @throwoutleft="$emit('discardCard')"
-    @throwoutright="$emit('like', card.name)"
+    @throwoutleft="$emit('dislike', card.id)"
+    @throwoutright="$emit('like', card.id)"
     :config="config"
   >
-    <router-link></router-link>
-    <div
-      class="card shadow p-3 mb-5 bg-white rounded"
-      :style="{ backgroundImage: `url(${card.link})` }"
-    >
+    <div class="card shadow bg-white rounded" :style="{ backgroundImage: `url(${card.link})` }">
       <div class="card-top"></div>
-      <div class="card-body">
-        <h5 class="card-title">{{card.name}}</h5>
+      <div class="cardBody">
+        <div class="row">
+          <h5 class="card-title col-6">{{card.name}}</h5>
+          <i></i>
+        </div>
         <p
           class="card-text"
         >Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia repellat praesentium nesciunt</p>
@@ -54,20 +53,23 @@ export default {
 
 <style scoped>
 .card {
+  border: 1px solid black;
   width: 300px;
   height: 420px;
   background-repeat: no-repeat;
   background-position: 50% 74.0741%;
   background-size: auto 111.266%;
-  padding: 1px;
+
   overflow: hidden;
 }
 .card-top {
-  height: 80%;
-  width: 80%;
+  height: 70%;
+  border: 1px solid black;
 }
-.card-body {
+.cardBody {
+  border: 1px solid black;
   text-align: left;
+  padding: 4px;
 }
 
 h5 {
@@ -80,5 +82,12 @@ p {
   color: #ffffff;
   font-weight: bold;
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.12);
+}
+.orange {
+  position: absolute;
+  height: 50px;
+  width: 50px;
+  background-position: 50% 74.0741%;
+  background-image: url("../assets/orange.png");
 }
 </style>

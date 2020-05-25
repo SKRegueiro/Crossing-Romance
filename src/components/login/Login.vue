@@ -1,16 +1,30 @@
 <template>
   <div class="card">
-    <button class="btn btn-primary">Sign in with google</button>
+    <button @click="signInGoogle" class="btn btn-primary">Sign in with Google</button>
     <span class>or</span>
-    <input class="input" type="email" name="email" placeholder="Email" />
-    <input class="input" type="password" name="password" placeholder="Password" />
+    <button @click="signInFacebook" class="btn btn-primary">Sign in with Facebook</button>
+    <span class>or</span>
+    <button @click="signInTwitter" class="btn btn-primary">Sign in with Twitter</button>
+
     <a href="#">Forgot password?</a>
     <a href="#">No account? Create one</a>
   </div>
 </template>
     
 <script>
-export default {};
+export default {
+  methods: {
+    signInGoogle() {
+      window.open("http://localhost:3000/auth/google");
+    },
+    signInFacebook() {
+      window.open("http://localhost:3000/auth/facebook");
+    },
+    signInTwitter() {
+      window.open("http://localhost:3000/auth/twitter");
+    }
+  }
+};
 </script>
 
 <style scoped>

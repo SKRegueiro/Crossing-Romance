@@ -19,10 +19,10 @@
       <div class="row mt-3">
         <label class="col-3">Gender:</label>
 
-        <input type="radio" class="form-check" v-model="userInfo.gender" value="male" />
+        <input type="radio" class="form-check" v-model="userInfo.gender" value="m" />
         <label class="form-check-label ml">Male</label>
 
-        <input type="radio" class="form-check ml-3" v-model="userInfo.gender" value="female" />
+        <input type="radio" class="form-check ml-3" v-model="userInfo.gender" value="f" />
         <label class="form-check-label">Female</label>
         <br />
       </div>
@@ -75,9 +75,16 @@ export default {
       }
     };
   },
+  
   methods: {
     submit() {
-      console.log(this.userInfo);
+      this.$http
+        .post("registerProfile", this.userInfo)
+        .then(response => {
+          if (response.ok) alert("Success!");
+          else alert("Something went wrong!");
+        })
+        .catch(err => console.log(err));
     }
   }
 };
@@ -88,6 +95,7 @@ export default {
   padding: 40px 15px;
   width: 100%;
   max-width: 600px;
+  max-height: fit-content;
   background: #fff;
   position: absolute;
   top: 50%;
