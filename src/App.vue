@@ -1,22 +1,18 @@
 <template>
   <div id="app">
-    <Home></Home>
+    <router-view class="app"></router-view>
   </div>
 </template>
 
 <script>
-import Home from "./components/Home";
-
 export default {
-  components: {
-    Home
-  }
+  components: {}
 };
 </script>
 
 <style>
 #app {
-  height: 100vh;
+  height: 100%;
   font-family: "Quicksand", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

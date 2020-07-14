@@ -1,30 +1,32 @@
 <template>
   <div>
-    <Nav></Nav>
-    <Login v-if="true"></Login>
-    <Registration v-if="false"></Registration>
-    <CardStack v-if="false"></CardStack>
+    <AppNav @menu="menu = !menu"></AppNav>
+    <Menu v-if="menu"></Menu>
+    <CardStack v-if="true"></CardStack>
   </div>
 </template>
 
 <script>
-import Nav from "./Nav";
 import CardStack from "./CardStack";
-import Registration from "./login/Registration";
-import Login from "./login/Login";
+import AppNav from "./Nav";
+import Menu from "./Menu";
 
 export default {
   data: function() {
-    return {};
+    return { menu: false };
   },
-
-  methods: {},
-
   components: {
-    Nav,
+    AppNav,
     CardStack,
-    Registration,
-    Login
+    Menu
+  },
+  created() {
+    this.$http
+      .get("users/current")
+      .then(result =>
+        this.$socket.emit("join", { senderEmail: result.body[0].email })
+      )
+      .catch(err => console.log(err));
   }
 };
 </script>

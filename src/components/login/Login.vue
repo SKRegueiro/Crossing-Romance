@@ -1,27 +1,24 @@
 <template>
   <div class="card">
-    <button @click="signInGoogle" class="btn btn-primary">Sign in with Google</button>
+    <h3>Sign up and start meeting new people!</h3>
+    <button @click="signIn('/google')" class="btn">Sign in with Google</button>
     <span class>or</span>
-    <button @click="signInFacebook" class="btn btn-primary">Sign in with Facebook</button>
+    <button @click="signIn('/facebook')" class="btn">Sign in with Facebook</button>
     <span class>or</span>
-    <button @click="signInTwitter" class="btn btn-primary">Sign in with Twitter</button>
-
-    <a href="#">Forgot password?</a>
-    <a href="#">No account? Create one</a>
+    <button @click="signIn('/twitter')" class="btn">Sign in with Twitter</button>
   </div>
 </template>
     
 <script>
 export default {
+  data() {
+    return {
+      baseUrl: "http://localhost:3000/auth"
+    };
+  },
   methods: {
-    signInGoogle() {
-      window.open("http://localhost:3000/auth/google");
-    },
-    signInFacebook() {
-      window.open("http://localhost:3000/auth/facebook");
-    },
-    signInTwitter() {
-      window.open("http://localhost:3000/auth/twitter");
+    signIn(provider) {
+      window.open(this.baseUrl + provider, "_self");
     }
   }
 };
@@ -30,8 +27,9 @@ export default {
 <style scoped>
 .card {
   padding: 36px 10px;
+  height: 500px;
   width: 100%;
-  max-width: 400px;
+  max-width: 800px;
   background: #fff;
   position: absolute;
   top: 50%;
@@ -44,5 +42,8 @@ span {
 input {
   border-radius: 5px;
   margin: 5px;
+}
+.btn {
+  border: 2px solid black;
 }
 </style>
