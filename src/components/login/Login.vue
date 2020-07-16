@@ -1,11 +1,15 @@
 <template>
-  <div class="card">
-    <h3>Sign up and start meeting new people!</h3>
-    <button @click="signIn('/google')" class="btn">Sign in with Google</button>
-    <span class>or</span>
-    <button @click="signIn('/facebook')" class="btn">Sign in with Facebook</button>
-    <span class>or</span>
-    <button @click="signIn('/twitter')" class="btn">Sign in with Twitter</button>
+  <div class="wrapper">
+    <div class="card">
+      <h2 class="card-title">Sign up and start crossing with new people!</h2>
+      <div class="card-body">
+        <button @click="signIn('/google')" class="btn">Sign in with Google</button>
+        <span>or</span>
+        <button @click="signIn('/facebook')" class="btn">Sign in with Facebook</button>
+        <span>or</span>
+        <button @click="signIn('/twitter')" class="btn">Sign in with Twitter</button>
+      </div>
+    </div>
   </div>
 </template>
     
@@ -24,26 +28,100 @@ export default {
 };
 </script>
 
+
+// Needs an icon/character/apptitle to look more alive
 <style scoped>
+.wrapper {
+  background: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.4) 0%,
+      rgba(255, 255, 255, 0.4) 100%
+    ),
+    url("https://66.media.tumblr.com/9704a6aa04ce3cd816318c2084f89e17/2123a843f9c10803-a3/s400x600/381223c2ff33cb23fa9890ae5fdbe5611edf76a9.png");
+}
 .card {
-  padding: 36px 10px;
-  height: 500px;
-  width: 100%;
-  max-width: 800px;
-  background: #fff;
-  position: absolute;
+  opacity: 1;
+  background: #f7f3e6;
+  padding: 60px;
+  height: fit-content;
+  width: fit-content;
+  border: 0px;
+  position: relative;
+  text-align: center;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  border-radius: 10%;
+  box-shadow: -1px 15px 30px -12px #384e53;
 }
 span {
   text-align: center;
+  color: #384e53;
 }
-input {
-  border-radius: 5px;
-  margin: 5px;
+
+.card-title {
+  color: #384e53;
 }
 .btn {
-  border: 2px solid black;
+  background-color: #48a9a6;
+  font-size: large;
+  color: #f7f3e6;
+  border: 2px solid transparent;
+}
+
+.btn:hover {
+  color: #f7f3e6;
+  background-size: 150% 100%;
+  border-color: #3f87a6;
+  background-image: repeating-linear-gradient(
+    45deg,
+    #48a9a6,
+    #48a9a6 30px,
+    #3f87a6 30px,
+    #3f87a6 50px
+  );
+  -webkit-animation: progress 2s linear infinite;
+  -moz-animation: progress 2s linear infinite;
+  -ms-animation: progress 2s linear infinite;
+  animation: progress 2s linear infinite;
+}
+
+@-webkit-keyframes progress {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -75px 0px;
+  }
+}
+@-moz-keyframes progress {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -75px 0px;
+  }
+}
+@-ms-keyframes progress {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -75px 0px;
+  }
+}
+@keyframes progress {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -70px 0px;
+  }
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 </style>
