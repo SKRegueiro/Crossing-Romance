@@ -9,6 +9,7 @@
         <span>or</span>
         <button @click="signIn('/twitter')" class="btn">Sign in with Twitter</button>
       </div>
+      <!-- <img src="..//../assets/characters/airlines-scene-2x.png" alt /> -->
     </div>
   </div>
 </template>
@@ -37,7 +38,7 @@ export default {
       rgba(255, 255, 255, 0.4) 0%,
       rgba(255, 255, 255, 0.4) 100%
     ),
-    url("https://66.media.tumblr.com/9704a6aa04ce3cd816318c2084f89e17/2123a843f9c10803-a3/s400x600/381223c2ff33cb23fa9890ae5fdbe5611edf76a9.png");
+    url("../../assets/acbackground/newhorizons_wallpaper_Isabelle.png");
 }
 .card {
   opacity: 1;
@@ -51,12 +52,16 @@ export default {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  border-radius: 10%;
+  border-radius: 30px;
   box-shadow: -1px 15px 30px -12px #384e53;
 }
 span {
   text-align: center;
   color: #384e53;
+}
+img {
+  height: 200px;
+  width: 200px;
 }
 
 .card-title {
@@ -72,7 +77,7 @@ span {
 .btn:hover {
   color: #f7f3e6;
   background-size: 150% 100%;
-  border-color: #3f87a6;
+  border-color: #48a9a6;
   background-image: repeating-linear-gradient(
     45deg,
     #48a9a6,

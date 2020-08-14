@@ -1,17 +1,15 @@
 <template>
-  <div class>
+  <div class="outer">
+    <h4 v-if="stack.length === 0">Oops, looks like nobody is crossing</h4>
     <UserCard
       class="inner"
-      v-for="(card, index) in stack"
+      v-for="(user, index) in stack"
       :key="index"
-      :card="card"
+      :user="user"
       :is-current="index === 0"
       @dislike="dislike"
       @like="like"
     ></UserCard>
-    <div v-if="stack.length === 0">
-      <h4>Oops, looks like nobody is crossing</h4>
-    </div>
   </div>
 </template>
 
@@ -92,17 +90,21 @@ export default {
 
 <style scoped>
 .outer {
-  width: 100%;
-  height: 100%;
-  max-height: 1000px;
   position: relative;
+  width: auto;
+  height: 100%;
   text-align: center;
+  overflow: hidden;
+}
+
+h4 {
+  position: relative;
 }
 
 .inner {
   position: absolute;
-  top: 20%;
-  left: 20%;
+  top: 15%;
+  left: 30%;
   padding: 3px;
 }
 </style>

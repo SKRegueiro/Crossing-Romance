@@ -1,14 +1,14 @@
 <template>
   <vue-swing
-    @throwoutleft="$emit('dislike', card.id)"
-    @throwoutright="$emit('like', card.id)"
+    @throwoutleft="$emit('dislike', user.id)"
+    @throwoutright="$emit('like', user.id)"
     :config="config"
   >
-    <div class="card shadow bg-white rounded" :style="{ backgroundImage: `url(${card.link})` }">
+    <div class="card shadow-sm bg-white rounded" :style="{ backgroundImage: `url(${user.link})` }">
       <div class="card-top"></div>
       <div class="cardBody">
         <div class="row">
-          <h5 class="card-title col-6">{{card.name}}</h5>
+          <h5 class="card-title col-6">{{user.name}}</h5>
           <i></i>
         </div>
         <p
@@ -39,7 +39,7 @@ export default {
   methods: {},
 
   props: {
-    card: {
+    user: {
       type: Object,
       required: true
     },
@@ -53,21 +53,18 @@ export default {
 
 <style scoped>
 .card {
-  border: 1px solid black;
   width: 300px;
   height: 420px;
   background-repeat: no-repeat;
   background-position: 50% 74.0741%;
   background-size: auto 111.266%;
-
   overflow: hidden;
+  border: none;
 }
 .card-top {
   height: 70%;
-  border: 1px solid black;
 }
 .cardBody {
-  border: 1px solid black;
   text-align: left;
   padding: 4px;
 }
@@ -88,6 +85,6 @@ p {
   height: 50px;
   width: 50px;
   background-position: 50% 74.0741%;
-  background-image: url("../assets/orange.png");
+  background-image: url("../../assets/fruit/orange.png");
 }
 </style>

@@ -8,8 +8,17 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "bootstrap": "^4.5.0",
     "core-js": "^3.6.4",
-    "vue": "^2.6.11"
+    "interact.js": "^1.2.8",
+    "socket.io": "^2.3.0",
+    "socket.io-client": "^2.3.0",
+    "swing": "^3.1.4",
+    "vue": "^2.6.11",
+    "vue-resource": "^1.5.1",
+    "vue-router": "^3.3.1",
+    "vue-socket.io": "^3.0.7",
+    "vue-swing": "0.0.10"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.3.0",

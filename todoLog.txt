@@ -1,0 +1,7 @@
+- Store images associated with user.
+- Add verification to the register process.
+- Add rouitng between views.
+- Add chat.
+- Add match functionality.
+- Keep record of liked and disliked users.
+- Work on the style. 
