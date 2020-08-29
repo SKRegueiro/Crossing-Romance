@@ -44,7 +44,6 @@ export default {
     changeComponent(component) {
       this.currentComponent = component;
     },
-
     getLastMessage(index) {
       // not working
       this.$http

@@ -18,7 +18,7 @@
 export default {
   data() {
     return {
-      baseUrl: "http://localhost:3000/auth"
+      baseUrl: this.$http.options.root + "/auth"
     };
   },
   methods: {
