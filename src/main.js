@@ -11,16 +11,16 @@ import SocketIO from "socket.io-client"
 // axios.defaults.baseURL = "http://localhost:3000";
 Vue.use(new VueSocketIO({
   debug: true,
-  connection: SocketIO('http://localhost:3000')
-  // connection: SocketIO('https://crossingpathsserver.herokuapp.com'),
+  // connection: SocketIO('http://localhost:3000')
+  connection: SocketIO('https://crossingpathsserver.herokuapp.com'),
 
 
 }))
 
 
 Vue.use(VueResource);
-Vue.http.options.root = "http://localhost:3000";
-// Vue.http.options.root = "https://crossingpathsserver.herokuapp.com";
+// Vue.http.options.root = "http://localhost:3000";
+Vue.http.options.root = "https://crossingpathsserver.herokuapp.com";
 Vue.http.options.credentials = true;
 
 Vue.use(VueRouter)

@@ -43,9 +43,9 @@ export default {
         })
         .catch(err => {
           console.log(err);
-          // if (err.status == 403) {
-          //   this.$router.push("/login");
-          // }
+          if (err.status == 403) {
+            this.$router.push("/login");
+          }
         });
     }
   },
