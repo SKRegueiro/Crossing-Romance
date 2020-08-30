@@ -12,7 +12,7 @@ import SocketIO from "socket.io-client"
 Vue.use(new VueSocketIO({
   debug: true,
   // connection: SocketIO('http://localhost:3000')
-  connection: SocketIO('https://crossingpathsserver.herokuapp.com'),
+  connection: SocketIO('https://server.crossingpaths.site'),
 
 
 }))
@@ -20,7 +20,7 @@ Vue.use(new VueSocketIO({
 
 Vue.use(VueResource);
 // Vue.http.options.root = "http://localhost:3000";
-Vue.http.options.root = "https://crossingpathsserver.herokuapp.com";
+Vue.http.options.root = "https://server.crossingpaths.site";
 Vue.http.options.credentials = true;
 
 Vue.use(VueRouter)
