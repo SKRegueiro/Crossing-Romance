@@ -1,5 +1,6 @@
 <template>
   <div class="wrapper">
+    <p>WORK IN PROGRESS</p>
     <Menu v-if="menu" @loadMain="changeComponent">
       <!-- Pass the menu subcomponents dinamically via slots, controlling all components from Home.vue -->
       <!-- <slot></slot> -->
