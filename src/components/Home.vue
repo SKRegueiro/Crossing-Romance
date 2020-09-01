@@ -1,11 +1,11 @@
 <template>
   <div class="wrapper">
-    <p>WORK IN PROGRESS</p>
     <Menu v-if="menu" @loadMain="changeComponent">
       <!-- Pass the menu subcomponents dinamically via slots, controlling all components from Home.vue -->
       <!-- <slot></slot> -->
     </Menu>
     <div class="main">
+      <h3 class="disclaimer">THIS IS IN A VERY EARLY STAGE</h3>
       <component :is="currentComponent"></component>
     </div>
   </div>
@@ -61,6 +61,10 @@ export default {
 .wrapper {
   background-image: url("https://www.toptal.com/designers/subtlepatterns/patterns/seigaiha.png");
   padding: 20px;
+}
+.disclaimer {
+  position: absolute;
+  z-index: 1000;
 }
 .main {
   background-color: #f0e5cd98;
