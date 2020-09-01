@@ -5,7 +5,7 @@
       <!-- <slot></slot> -->
     </Menu>
     <div class="main">
-      <h3 class="disclaimer">THIS IS IN A VERY EARLY STAGE</h3>
+      <h3 class="disclaimer">THIS IS AT A VERY EARLY STAGE</h3>
       <component :is="currentComponent"></component>
     </div>
   </div>
