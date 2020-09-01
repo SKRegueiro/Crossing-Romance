@@ -22,3 +22,7 @@ yarn-error.log*
 
 # Local Netlify folder
 .netlify
+crossingpaths.csr
+crossingpaths.key
+todoLog.txt
+node_modules
