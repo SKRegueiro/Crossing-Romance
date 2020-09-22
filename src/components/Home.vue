@@ -5,7 +5,6 @@
       <!-- <slot></slot> -->
     </Menu>
     <div class="main">
-      <h1 class="disclaimer">THIS IS AT A VERY EARLY STAGE</h>
       <component :is="currentComponent"></component>
     </div>
   </div>
@@ -74,6 +73,7 @@ export default {
   width: 69%;
   height: 100%;
 }
+
 /* Inspiration for the ticket design:
 https://dribbble.com/shots/10488910-Animal-Crossing-New-Horizons-Boarding-Pass
 https://www.reddit.com/r/ac_newhorizons/comments/f9la0p/took_my_turn_creating_a_getaway_package_boarding/
