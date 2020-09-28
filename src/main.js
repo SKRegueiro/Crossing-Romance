@@ -6,21 +6,19 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import App from './App.vue'
 import VueSocketIO from 'vue-socket.io'
 import SocketIO from "socket.io-client"
-// import axios from 'axios'
 
-// axios.defaults.baseURL = "http://localhost:3000";
 Vue.use(new VueSocketIO({
   debug: true,
-  connection: SocketIO('http://localhost:3000')
-  // connection: SocketIO('https://server.crossingpaths.site'),
+  // connection: SocketIO('http://localhost:3000')
+  connection: SocketIO('https://server.crossingpaths.site'),
 
 
 }))
 
 
 Vue.use(VueResource);
-Vue.http.options.root = "http://localhost:3000";
-// Vue.http.options.root = "https://server.crossingpaths.site";
+// Vue.http.options.root = "http://localhost:3000";
+Vue.http.options.root = "https://server.crossingpaths.site";
 Vue.http.options.credentials = true;
 
 Vue.use(VueRouter)
