@@ -1,0 +1,7 @@
+{
+  "name": "crossingromance",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue"
+}
