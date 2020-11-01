@@ -1,6 +1,6 @@
 import axios from 'axios'
 const Http = axios.create({
-    baseURL: 'https://server.crossingpaths.site',
+    baseURL: 'https://localhost:3000',
     timeout: 1000,
     withCredentials: true
 });

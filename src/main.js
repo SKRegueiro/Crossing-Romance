@@ -24,13 +24,12 @@ import './theme/variables.css';
 
 const app = createApp(App)
   .use(IonicVue, {
-    rippleEffect: false
+    rippleEffect: true
   })
   .use(router)
 
 app.component('ion-content', IonContent);
 app.component('ion-page', IonPage);
-// app.use(VueResource)
 
 router.isReady().then(() => {
   app.mount('#app');
