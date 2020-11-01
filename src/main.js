@@ -1,8 +1,7 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router';
-
-import { IonicVue } from '@ionic/vue';
+import { IonContent, IonicVue, IonPage } from '@ionic/vue';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/vue/css/core.css';
@@ -24,9 +23,15 @@ import '@ionic/vue/css/display.css';
 import './theme/variables.css';
 
 const app = createApp(App)
-  .use(IonicVue)
-  .use(router);
-  
+  .use(IonicVue, {
+    rippleEffect: false
+  })
+  .use(router)
+
+app.component('ion-content', IonContent);
+app.component('ion-page', IonPage);
+// app.use(VueResource)
+
 router.isReady().then(() => {
   app.mount('#app');
 });

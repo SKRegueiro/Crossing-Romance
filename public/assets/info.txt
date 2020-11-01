@@ -1,0 +1,14 @@
+
+Hope you enjoy your new logo, here are the people that
+made your beautiful logo happen :)
+font name: Comfortaa-Bold
+font link: https://fonts.google.com/specimen/Comfortaa
+font author: Johan Aakerlund
+font author site: https://aajohan.deviantart.com/
+
+
+icon designer: Imogen Oh
+icon designer link: /imogenoh
+        
+{"bg":"#5F9E40","icon":"#F1C808","font":"#FFFFFF","slogan":"#ffffff"}
+      
